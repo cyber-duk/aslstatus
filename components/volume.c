@@ -7,11 +7,12 @@
 
 #include "../util.h"
 
+
 #if defined(USE_ALSA) || defined(USE_PULSE)
 static const char SYM[] = "";         /* you can specify volume sym there */
-static const char PERCENT[] = " %";   /* percent sign */
-static const char MUTED[] = "muted";  /* string to be displayed if muted */
-#endif
+static const char PERCENT[] = "";   /* percent sign */
+static const char MUTED[] = "MUTE";  /* string to be displayed if muted */
+#endif  
 
 #if defined(USE_ALSA)
 	static const size_t CTL_NAME_MAX = 3 + 10 + 1;
@@ -184,7 +185,7 @@ static const char MUTED[] = "muted";  /* string to be displayed if muted */
 		if (is_muted())
 			bprintf(volume, "%s", MUTED);
 		else
-			bprintf(volume, "%s%3hu%s",
+			bprintf(volume, "%s%hu%s",
 					SYM, get_percentage(), PERCENT);
 	}
 

@@ -1,5 +1,5 @@
 /* text to show if no value can be retrieved */
-static const char unknown_str[] = "n/a";
+static const char unknown_str[] = "N/A";
 
 /* maximum output string length */
 #define MAXLEN 256
@@ -77,7 +77,7 @@ static const char unknown_str[] = "n/a";
 #define MIN * 60 SEC
 
 #define ONCE ((unsigned int) -1)  /* to run */
-static const char IFC[] = "wlan0";  /* wifi interface */
+static const char IFC[] = "wlp3s0";  /* wifi interface */
 
 /* temporarily to get sound percentage for pulseaudio */
 static const char pulse_volume[] = "pactl subscribe | "
@@ -88,21 +88,20 @@ static const char pulse_volume[] = "pactl subscribe | "
 static struct arg_t args[] = {
 
 /* function		format		argument	interval (in ms) */
-{ disk_perc,		" [# %s%%",	"/",		25 SEC,	END },
-{ disk_free,		" %s]",		"/",		25 SEC,	END },
-{ cpu_perc,		"-[ %s%%]",	NULL,		 1 SEC,	END },
-{ load_avg,		"-[%s]",	NULL,		 3 SEC,	END },
-{ ram_used,		"-[﬙ %s]", 	NULL,		 3 SEC,	END },
-
-{ vol_perc,		"-[墳 %s]",	NULL,		 0,	END },
-/* { run_command,		"-[墳 %s]",	pulse_volume,	 1,	END }, */
-
-{ wifi_essid,		"-[直 \"%s\"",	IFC,		 2 SEC,	END },
-{ wifi_perc,		" %s%%]",	IFC,		 2 SEC,	END },
-{ battery_state,	"-[%s",		"BAT0",		 2 SEC,	END },
-{ battery_perc,		" %s%%]",	"BAT0",		 1 MIN,	END },
-{ datetime,		"-[ %s]",	"%H:%M:%S",	 1 SEC,	END },
-{ keymap,		"-[ %s^",	NULL,		 0,	END },
-{ keyboard_indicators,	"%s] ",		"c",		 0,	END },
+// { disk_perc,		" [# %s%%",	"/",		25 SEC,	END },
+// { disk_free,		" %s]",		"/",		25 SEC,	END },
+// { load_avg,		"-[%s]",	NULL,		 3 SEC,	END },
+// { ram_used,		"-[﬙ %s]", 	NULL,		 3 SEC,	END },
+// { temp,             "[%sC]",    NULL,		 3 SEC, END },
+{ wifi_essid,		"[直 %s]",	IFC,		 3 SEC,	END },
+// { cpu_perc,		"-[ %s]",	NULL,		 1 SEC,	END },
+{ vol_perc,		    "-[墳 %s]",	NULL,		 0,	END },
+/* { run_command,	"-[墳 %s]",	pulse_volume,	 1,	END }, */
+// { wifi_perc,		" %s%%]",	IFC,		 2 SEC,	END },
+{ battery_state,	"-[%s",		"BAT0",		 3 SEC,	END },
+{ battery_perc,		" %s]",	    "BAT0",		 1 MIN,	END },
+{ datetime,		    "-[%s]",	"%d %a, %H:%M",	 30 SEC, END },
+// { keymap,		"-[ %s^",	NULL,		 0,	END },
+// { keyboard_indicators,	"%s] ",		"c",		 0,	END },
 
 };

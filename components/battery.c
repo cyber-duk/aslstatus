@@ -48,7 +48,7 @@ static const char DISCHARGING[] = "-"; /* "-" */
 			ERRRET(out);
 		}
 
-		bprintf(out, "%3d", perc);
+		bprintf(out, "%d", perc);
 	}
 
 	void
